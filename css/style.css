@@ -1,0 +1,226 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Share+Tech+Mono&display=swap");
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Theme Variables */
+:root {
+  /* Dark Theme Variables */
+  --bg-color: #1a1a2e;
+  --text-color: #e5e7eb;
+  --text-color-rgb: 229, 231, 235; /* light gray */
+  --display-bg: #16213e;
+  --lap-bg: #0f3460;
+  --button-primary: #e94560;
+  --button-hover: #ff687d;
+}
+
+.light-theme {
+  /* Light Theme Variables */
+  --bg-color: #f0f2f5;
+  --text-color: #1f2937;
+  --text-color-rgb: 31, 41, 55; /* dark gray */
+  --display-bg: #ffffff;
+  --lap-bg: #e0e7ff;
+  --button-primary: #1d4ed8;
+  --button-hover: #3b82f6;
+}
+
+/* Global Layout */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Inter", sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0.75rem;
+}
+
+/* Stopwatch Container */
+.stopwatch-container {
+  width: 100%;
+  max-width: 512px; 
+  padding: 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4),
+    0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s;
+  background-color: var(--display-bg);
+}
+
+/* H1 Title */
+.stopwatch-title {
+  font-size: 1.875rem; 
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+/* Time Display (Digital Clock Look) */
+.time-display {
+  font-family: "Share Tech Mono", monospace;
+  letter-spacing: 2px;
+  background-color: var(--display-bg);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, box-shadow 0.3s;
+
+  /* Sizing and Layout */
+  font-size: 3rem; 
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  border-radius: 0.75rem;
+}
+/* Responsive font size for display */
+@media (min-width: 768px) {
+  .time-display {
+    font-size: 4.5rem; 
+  }
+}
+
+/* Milliseconds styling */
+#ms-display {
+  font-size: 0.6em;
+  color: rgba(var(--text-color-rgb), 0.7);
+}
+
+/* Controls Layout  */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Base Button Styling */
+.control-btn {
+  flex: 1 1 100px;
+  min-width: 100px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+}
+
+/* Button Type Overrides */
+.start-btn {
+  background-color: #22c55e; 
+  color: white;
+}
+.start-btn:hover:not(:disabled) {
+  background-color: #16a34a;
+  transform: translateY(-2px);
+}
+
+.stop-btn {
+  background-color: #ef4444; 
+  color: white;
+}
+.stop-btn:hover:not(:disabled) {
+  background-color: #dc2626;
+  transform: translateY(-2px);
+}
+
+.utility-btn {
+  background-color: #3b82f6; 
+  color: white;
+}
+.utility-btn:hover:not(:disabled) {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+.control-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Lap Times */
+.lap-container {
+  margin-top: 2rem;
+  max-height: 15rem; 
+  overflow-y: auto;
+}
+.lap-container h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  text-align: center;
+  color: var(--text-color);
+}
+.lap-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.lap-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem; 
+  background-color: var(--lap-bg);
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s;
+}
+
+/* Responsive lap item font size */
+@media (min-width: 768px) {
+  .lap-item {
+    font-size: 1rem; 
+  }
+}
+
+/* Lap Item Content Styling */
+.lap-item .lap-number {
+  font-weight: 700;
+}
+.lap-item .lap-split {
+  font-size: 0.875em;
+  opacity: 0.7;
+}
+.lap-item .lap-total {
+  font-family: "Share Tech Mono", monospace;
+  font-weight: 400;
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.75rem;
+  border-radius: 50%;
+  background-color: #3b82f6;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+#theme-toggle:hover {
+  background-color: #2563eb;
+  transform: scale(1.05);
+}
+#theme-toggle svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}

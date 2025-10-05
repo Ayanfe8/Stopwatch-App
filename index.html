@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stopwatch App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="dark-theme">
+    <!-- <div class="container">
+      <h1>Stopwatch</h1>
+      <div class="display" id="time-display">00:00:00.000</div>
+
+      <div class="buttons">
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <button id="reset">Reset</button>
+        <button id="lap">Lap</button>
+        <button id="theme-toggle">🌙</button>
+      </div>
+
+      <ul class="laps" id="laps"></ul>
+    </div> -->
+
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle">
+      <!-- Moon Icon (Dark Mode) / Sun Icon (Light Mode) -->
+      <svg
+        id="toggle-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="w-6 h-6"
+      >
+        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+      </svg>
+    </button>
+
+    <div class="stopwatch-container">
+      <h1 class="stopwatch-title">
+        Digital Stopwatch
+      </h1>
+
+      <!-- Time Display -->
+      <div id="display" class="time-display">
+        <span id="hms-display">00:00:00</span><span id="ms-display">.00</span>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls">
+        <button id="start-btn" class="control-btn start-btn">Start</button>
+        <button id="stop-btn" class="control-btn stop-btn" disabled>
+          Stop
+        </button>
+        <button id="reset-btn" class="control-btn utility-btn">Reset</button>
+        <button id="lap-btn" class="control-btn utility-btn" disabled>
+          Lap
+        </button>
+      </div>
+
+      <!-- Lap Times Display -->
+      <div id="lap-container">
+        <h2>Lap Times</h2>
+        <ul id="lap-list" class="lap-list">
+        </ul>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
